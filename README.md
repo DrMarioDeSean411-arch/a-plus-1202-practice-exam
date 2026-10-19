@@ -10,7 +10,7 @@
 
 **[https://DrMarioDeSean411-arch.github.io/a-plus-1202-practice-exam/a_plus_1202_full_exam.html](https://DrMarioDeSean411-arch.github.io/a-plus-1202-practice-exam/a_plus_1202_full_exam.html)**
 
-The tool has four modes, switchable at the top of the page: Practice Questions, Domain Study Guide, Visual Reference, and Interactive Foundations.
+The tool has five modes, switchable at the top of the page: Practice Questions, Domain Study Guide, Visual Reference, Interactive Foundations, and Simulation Exam.
 
 ---
 
@@ -34,6 +34,8 @@ Nothing here is copied from CompTIA's proprietary exam bank. Every question was 
 | 4.0 Operational Procedures | 15% | 50 | 17 | 19 | 14 |
 | 5.0 Networking | 12% | 50 | 17 | 19 | 14 |
 | **Total** | **100%** | **250** | **85** | **95** | **70** |
+
+(Mode 5, Simulation Exam, adds a separate 120-item set — see below — scored independently of Mode 1.)
 
 Each question includes:
 - A clear explanation of the correct answer
@@ -92,35 +94,35 @@ Ten small, dependency-free JavaScript tools for building intuition rather than m
 
 ---
 
-## After You Complete the Exam
+## Mode 5: Simulation Exam
 
-If this is being used for a WGU or other course requiring results submission, email your instructor:
+A fifth, exam-rigor section built to mirror the depth and format of real CompTIA A+ 1202 simulation-style assessments: **120 items** — 105 scenario-driven multiple-choice questions (including two "choose two" items) plus **15 true performance-based simulations (PBQs)**.
 
-📧 **mario.booker@wgu.edu**
+Each PBQ is a multi-step, click-through scenario modeled on the structure of real A+ performance-based questions — a short scenario and instructions, then 4–5 sequential decision points, each graded individually with an explanation. A PBQ is marked **Mastered** only if every step is answered correctly, mirroring CompTIA's own Mastered / Not Mastered convention for this question type.
 
-**Subject line:** `A+ 1202 Practice Exam Results — [Your Name] — [Date]`
+The 15 PBQs:
 
-**In the body, include:**
-1. Your overall score and per-domain breakdown
-2. The domain or topic you found most challenging
-3. Any questions about topics you missed
+| # | Domain | Simulation |
+|---|---|---|
+| 1 | Security | Phishing & Spam Email Triage |
+| 2 | Security | Malware Outbreak: Host Quarantine Decision |
+| 3 | Security | Lost Corporate Phone: Incident Response Order |
+| 4 | Security | Encryption Method Selection Builder |
+| 5 | Operating Systems | OS Deployment Method Selector |
+| 6 | Operating Systems | NTFS Permission Troubleshooting Walkthrough |
+| 7 | Operating Systems | Windows Update Rollback Decision Walkthrough |
+| 8 | Operating Systems | User Profile Migration Walkthrough |
+| 9 | Software Troubleshooting | Printer & Peripheral Troubleshooting Flow |
+| 10 | Software Troubleshooting | Blue Screen of Death Diagnostic Walkthrough |
+| 11 | Software Troubleshooting | Application Conflict Diagnostic Walkthrough |
+| 12 | Operational Procedures | Backup Strategy Builder |
+| 13 | Operational Procedures | Disaster Recovery Site Selection |
+| 14 | Networking | SOHO Router Hardening Chat |
+| 15 | Networking | Network Device Placement & Segmentation |
 
----
+Domain distribution across all 120 simulation items: OS 32 · Security 32 · Software Troubleshooting 23 · Operational Procedures 18 · Networking 15 — weighted to track the real exam's domain emphasis (OS and Security each 27%, Software Troubleshooting 19%, Operational Procedures 15%, Networking 12%).
 
-## Technical Notes (For Instructors / Maintainers)
-
-The entire tool is one self-contained HTML file (`a_plus_1202_full_exam.html`) with zero external dependencies — no CDN calls, no image hosting, no backend. All 250 questions, the study guide, SVG diagrams, and interactive tools are bundled inline. GitHub Pages serves it as a static file; any static file host would work identically.
-
-State is session-only: answers, scores, and interactive tool state reset when the browser tab closes. Nothing is written to localStorage or any server.
-
-To update or add questions, edit the relevant domain array (`OS`, `SEC`, `SW`, `OPS`, `NET`) directly in the `<script>` block and push to `main`. GitHub Pages rebuilds within 1–2 minutes.
-
-**Validation performed before deployment:**
-- `node --check` on the full extracted JavaScript — passes with no syntax errors
-- Every one of the 250 question objects checked for required fields (`comp`, `objective`, `topic`, `diff`, `stem`, `opts`, `ans`, `rationale`, `misconception`) — zero missing
-- Every `ans` index checked against its 4-option array bounds — all valid
-- Difficulty distribution checked per domain — all five hit the target 17 foundational / 19 intermediate / 14 advanced split exactly
-- All 9 SVG diagrams parsed as well-formed XML — zero errors
+Use the domain filter buttons to focus practice on one domain, or work straight through all 120 in order. Progress, per-domain scoring, and a Mastered/Not Mastered PBQ tally are tracked live at the top of the mode.
 
 ---
 
